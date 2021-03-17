@@ -2,7 +2,6 @@ import importlib.util
 import logging
 import os
 
-from covid_nlp.language import detect_language as match
 import pandas as pd
 from haystack.database.elasticsearch import ElasticsearchDocumentStore
 from haystack.retriever.elasticsearch import ElasticsearchRetriever
@@ -13,60 +12,6 @@ logger = logging.getLogger(__name__)
 PATH = os.getcwd() + "/scrapers"
 RESULTS = []
 MISSED = []
-
-# Scrapers can be bundled together as an aggregate in their own 
-# Doing so is beneficial since there are several different scrapers depending on the data source, so rather than having
-# a call to each scraper, it could be made such that the system "decides" what scraper is most suitable depending on the
-# question that the individual has asked (depending on any keywords such as location, language, statistic, etc.)
-# Since this would require some NLP and ML models to assist in accurate matching, those parts will be done in
-# pseudocode.
-
-
-question = input()
-
-
-# Assume there is a getDataSources algorithm that finds an appropriate data source depending on the information provided
-class Matching():
-    
-    datasources = []
-
-    def __init__(self):
-        pass
-
-    def match_language(self):
-        language = match.LanguageDetector.detect_lang_sil(__self__, question)
-        # pseudocode
-        datasources.append(language.getDataSources())
-        return datasources
-    
-    def match_location(self):
-        location = input()
-        # pseudocode:
-        datasources.append(location.getDataSources())
-        return datasources
-    
-    def match_statistic(self):
-        age = input(int)
-        demographic = input()
-        profession = input()
-        region_of_residence = input()
-
-
-        information = {
-            age,
-            profession,
-            region_of_residence
-        }
-        #pseudocode
-        if (age in A): # A is an arbitrary age range
-            datasources.append(age.getDataSources())
-        if (profession is B): # B is an arbitrary career/profession
-            datasources.append(profession.getDataSources())
-        if (region_of_residence in C): # C is an arbitrary residential area
-            datasources.append(profession.getDataSources())
-        
-    def optimal_sources(self):
-        return datasources
 
 
 class Pipeline(object):
