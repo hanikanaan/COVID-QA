@@ -1,7 +1,6 @@
-from eval import eval_question_similarity
+from ..covid_nlp.eval import eval_question_similarity
 import pandas as pd
-import eval
-import modeling.tfidf, modeling.transformer
+from ..covid_nlp import eval
 
 class Question:
     
