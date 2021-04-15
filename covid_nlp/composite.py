@@ -14,9 +14,9 @@ class Question:
         
     # Recursive call: traverses the tree of questions (based on similarity) to see if any of these questions have similarity scores close to one another
     def FindQuestion(question):
-        if (curr.eval_question_similarity() - question.eval_question_similarity() <= 0.85):
+        if (curr.eval_question_similarity() - question.eval_question_similarity() >= 0.85):
             return qfile[1]
-        elif (curr.eval_question_similarity() - question.eval_question_similarity() > 0.85):
+        elif (curr.eval_question_similarity() - question.eval_question_similarity() < 0.85):
             qfile.columns[0].remove(curr)
             FindQuestion(question)
         return None
