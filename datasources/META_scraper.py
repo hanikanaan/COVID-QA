@@ -13,6 +13,9 @@ PATH = os.getcwd() + "/scrapers"
 RESULTS = []
 MISSED = []
 
+class ScraperPrototypeInterface:
+  @abstractstaticmethod
+  def clone():
 
 class Pipeline(object):
     questionsOnly = True
