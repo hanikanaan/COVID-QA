@@ -25,7 +25,7 @@ class Question:
     # The tree will work such that the leaves can be considered as IDs for questions, and the more similar questions will be grouped together
     # Recursive structure helps the program traverse down the tree with logarithmic time due to the tree properties which will end up
     # helping with performance in both time and space complexities.
-    def placeQuestion(question):
+    def PlaceQuestion(question):
         min = 1
         tree = {
             {
